@@ -14,11 +14,7 @@ import { formatToCurrency } from '@take-home-task/utils';
 import translations from '@take-home-task/intl/en.json';
 import ExchangeRatesHistoryViewModal from './ExchangeRatesHistoryViewModal';
 import ExchangeRatesTableFooter from './ExchangeRatesTableFooter';
-
-function getColorValueFromExchangeRateTrend(trend: ExchangeRateTrend) {
-  if (trend === ExchangeRateTrend.NO_CHANGE) return 'text.primary';
-  return trend === ExchangeRateTrend.INCREASE ? 'success.light' : 'error.light';
-}
+import { getClassNameFromExchangeRateTrend } from './utils';
 
 export interface RowData {
   baseCurrency: string;
@@ -67,14 +63,24 @@ export default function ExchangeRatesTable({ rows }: Props) {
               rows.map((row, index) => {
                 const currencyPairKey = `${row.baseCurrency}${row.quoteCurrency}`;
                 return (
-                  <TableRow key={currencyPairKey}>
+                  <TableRow key={currencyPairKey} aria-label={currencyPairKey}>
                     <TableCell align='left'>{index + 1}</TableCell>
                     <TableCell align='center'>{row.baseCurrency}</TableCell>
                     <TableCell align='center'>{row.quoteCurrency}</TableCell>
-                    <TableCell align='right' sx={{ fontWeight: 600, color: getColorValueFromExchangeRateTrend(row.latestPrice.trend) }}>
+                    <TableCell
+                      align='right'
+                      aria-label='latest price'
+                      sx={{ fontWeight: 600 }}
+                      className={getClassNameFromExchangeRateTrend(row.latestPrice.trend)}
+                    >
                       {formatToCurrency(row.latestPrice.value, row.quoteCurrency)}
                     </TableCell>
-                    <TableCell align='right'>{formatToCurrency(row.averagePrice, row.quoteCurrency)}</TableCell>
+                    <TableCell
+                      align='right'
+                      aria-label='average price'
+                    >
+                      {formatToCurrency(row.averagePrice, row.quoteCurrency)}
+                    </TableCell>
                     <TableCell align='center'>
                       <Tooltip title={translations.exchangeRates.table.viewHistoricalDataTooltip}>
                         <IconButton

@@ -2,3 +2,15 @@
   padding: 1rem;
   min-height: 100vh;
 }
+
+.priceIncreaseTrend {
+  color: green;
+}
+
+.priceDecreaseTrend {
+  color: red;
+}
+
+.priceNoChangeTrend {
+  color: black;
+}

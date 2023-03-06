@@ -23,4 +23,4 @@ export type AppThunk<ReturnType = void, ExtraThunkArg = unknown> = ThunkAction<
   Action<string>
 >;
 
-export const wrapper = createWrapper<AppStore>(setupStore);
+export const storeWrapper = createWrapper<AppStore>(setupStore);
