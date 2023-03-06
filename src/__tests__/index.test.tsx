@@ -1,7 +1,7 @@
 import { fireEvent, screen, within } from '@testing-library/react';
 import { insertRatesThunk } from '@take-home-task/features/exchangeRates';
 import { renderWithProvider } from '@take-home-task/utils/tests';
-import Index from './index';
+import Index from '../pages/index';
 
 describe('Index page', () => {
   it('should render the exchange rates table with all functionalities', async () => {
@@ -45,6 +45,7 @@ describe('Index page', () => {
     expect(newTableRowCell).toBeInTheDocument();
 
     // Open the history view
+    // eslint-disable-next-line testing-library/no-node-access
     const openHistoryViewBtn = within(newTableRowCell.parentElement as HTMLElement).getByLabelText('open historical rates view');
     fireEvent.click(openHistoryViewBtn);
     const historyViewModal = await screen.findByLabelText('exchange rate history view modal');
