@@ -1,7 +1,7 @@
 import { fireEvent, screen, within } from '@testing-library/react';
 import { insertRatesThunk } from '@take-home-task/features/exchangeRates';
 import { renderWithProvider } from '@take-home-task/utils/tests';
-import Index from '../pages/index';
+import Index from '@take-home-task/pages/index';
 
 describe('Index page', () => {
   it('should render the exchange rates table with all functionalities', async () => {

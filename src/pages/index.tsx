@@ -1,9 +1,14 @@
 import Head from 'next/head';
 import styles from '@take-home-task/styles/Home.module.css';
 import { useInterval, useAppDispatch } from '@take-home-task/hooks';
-import { wrapper } from '@take-home-task/store';
+import { storeWrapper } from '@take-home-task/store';
 import { ExchangeRatesTableWrap, insertRatesThunk } from '@take-home-task/features/exchangeRates';
 
+/**
+ * Can be moved to environment variable if
+ * environments have different needs for request frequency
+ * or to be able to re-deploy without making changes to the code.
+ */
 const FETCH_EXCHANGE_RATES_REQUEST_DELAY_MS = 60000;
 
 export default function Home() {
@@ -28,7 +33,7 @@ export default function Home() {
   )
 }
 
-Home.getInitialProps = wrapper.getInitialPageProps((store) => async () => {
+Home.getInitialProps = storeWrapper.getInitialPageProps((store) => async () => {
   await store.dispatch(insertRatesThunk());
   return {};
 });
