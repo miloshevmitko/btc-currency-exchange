@@ -1,0 +1,30 @@
+{
+  "exchangeRates": {
+    "table": {
+      "actionsHeader": "Actions",
+      "averageRateHeader": "Average Rate",
+      "baseCurrencyHeader": "Base Currency",
+      "latestRateHeader": "Latest Rate",
+      "quoteCurrencyHeader": "Quote Currency",
+      "viewHistoricalDataTooltip": "View historical data",
+      "footer": {
+        "addQuoteCurrencyLabel": "Add Quote Currency",
+        "quoteCurrencyAddedNotification": "Success! The currency will be added after the next tick.",
+        "selectCurrencyLabel": "Select currency"
+      },
+      "settings": {
+        "applyBtnLabel": "Apply Settings",
+        "avgRateDateTimeRangeLabel": "Avg. Rate Timeframe",
+        "endDateDateTimeRangeLabel": "End Date",
+        "menuBtnLabel": "Settings",
+        "startDateDateTimeRangeLabel": "Start Date"
+      },
+      "wrap": {
+        "tableTitle": "Exchange Rates"
+      }
+    },
+    "historyViewModal": {
+      "title": "Historical overview for the value of {1} in {2}"
+    }
+  }
+}
