@@ -6,9 +6,14 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateTimeField } from '@mui/x-date-pickers/DateTimeField';
 import type { DateTimeFieldProps } from '@mui/x-date-pickers/DateTimeField';
 
-const dateTimeFieldStyles = {
-  marginTop: 1
-};
+const dateTimeFieldProps = {
+  ampm: false,
+  format: 'DD-MM-YYYY HH:mm',
+  size: 'small' as const,
+  sx: {
+    marginTop: 1
+  }
+}
 
 interface Props {
   endDateProps: DateTimeFieldProps<Dayjs>;
@@ -22,8 +27,8 @@ export default function DateTimeRange({
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Box display='flex' flexDirection='column' alignItems='center'>
-        <DateTimeField size='small' ampm={false} sx={dateTimeFieldStyles} {...startDateProps} />
-        <DateTimeField size='small' ampm={false} sx={dateTimeFieldStyles} {...endDateProps} />
+        <DateTimeField  {...dateTimeFieldProps} {...startDateProps} />
+        <DateTimeField  {...dateTimeFieldProps} {...endDateProps} />
       </Box>
     </LocalizationProvider>
   );
