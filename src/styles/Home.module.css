@@ -3,14 +3,14 @@
   min-height: 100vh;
 }
 
-.priceIncreaseTrend {
+.main .priceIncreaseTrend {
   color: green;
 }
 
-.priceDecreaseTrend {
+.main .priceDecreaseTrend {
   color: red;
 }
 
-.priceNoChangeTrend {
+.main .priceNoChangeTrend {
   color: black;
 }
